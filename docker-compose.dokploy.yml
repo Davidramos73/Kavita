@@ -12,6 +12,18 @@ services:
       - kavita_books:/books
     environment:
       - TZ=America/Guatemala
+    networks:
+      - dokploy-network
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.kavita.rule=Host(`books.aicycle.cloud`)
+      - traefik.http.routers.kavita.entrypoints=websecure
+      - traefik.http.routers.kavita.tls.certResolver=letsencrypt
+      - traefik.http.services.kavita.loadbalancer.server.port=5000
+
+networks:
+  dokploy-network:
+    external: true
 
 volumes:
   kavita_config:
