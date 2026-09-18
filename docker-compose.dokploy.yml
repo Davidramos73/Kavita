@@ -6,10 +6,10 @@ services:
     expose:
       - "5000"
     volumes:
-      - ./files/config:/kavita/config
-      - ./files/manga:/manga
-      - ./files/comics:/comics
-      - ./files/books:/books
+      - /data/kavita/config:/kavita/config
+      - /data/kavita/manga:/manga
+      - /data/kavita/comics:/comics
+      - /data/kavita/books:/books
     environment:
       - TZ=America/Guatemala
     networks:
