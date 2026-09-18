@@ -6,10 +6,10 @@ services:
     expose:
       - "5000"
     volumes:
-      - kavita_config:/kavita/config
-      - kavita_manga:/manga
-      - kavita_comics:/comics
-      - kavita_books:/books
+      - ./files/config:/kavita/config
+      - ./files/manga:/manga
+      - ./files/comics:/comics
+      - ./files/books:/books
     environment:
       - TZ=America/Guatemala
     networks:
@@ -24,9 +24,3 @@ services:
 networks:
   dokploy-network:
     external: true
-
-volumes:
-  kavita_config:
-  kavita_manga:
-  kavita_comics:
-  kavita_books:
