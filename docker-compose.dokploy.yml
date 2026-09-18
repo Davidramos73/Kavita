@@ -1,0 +1,20 @@
+services:
+  kavita:
+    image: kizaing/kavita:latest
+    container_name: kavita
+    restart: unless-stopped
+    expose:
+      - "5000"
+    volumes:
+      - kavita_config:/kavita/config
+      - kavita_manga:/manga
+      - kavita_comics:/comics
+      - kavita_books:/books
+    environment:
+      - TZ=America/Guatemala
+
+volumes:
+  kavita_config:
+  kavita_manga:
+  kavita_comics:
+  kavita_books:
